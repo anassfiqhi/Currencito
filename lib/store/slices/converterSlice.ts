@@ -9,10 +9,10 @@ interface ConverterState {
 }
 
 const initialState: ConverterState = {
-    amount: '100',
+    amount: '0',
     toAmount: '',
-    fromCurrency: 'MAD',
-    toCurrency: 'USD',
+    fromCurrency: 'USD',
+    toCurrency: 'MAD',
 };
 
 const converterSlice = createSlice({
