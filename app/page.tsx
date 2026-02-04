@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { CurrencyConverterWithUrl } from "@/components/CurrencyConverterWithUrl";
 
 export default function Home() {
@@ -15,7 +16,9 @@ export default function Home() {
         </div>
 
         {/* Main Converter */}
-        <CurrencyConverterWithUrl />
+        <Suspense fallback={<div className="text-center text-gray-600 dark:text-gray-400">Loading converter...</div>}>
+          <CurrencyConverterWithUrl />
+        </Suspense>
 
         {/* Info Section */}
         <div className="mt-12 max-w-3xl mx-auto">
