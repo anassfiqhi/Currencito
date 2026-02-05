@@ -61,7 +61,7 @@ A modern, feature-rich currency converter application specializing in Moroccan c
 ## 📁 Project Structure
 
 ```
-moroccan_currencies/
+currencito/
 ├── app/                          # Next.js App Router
 │   ├── layout.tsx               # Root layout with providers
 │   └── page.tsx                 # Home page
@@ -168,7 +168,7 @@ calculateDenominations(amount: number): Denomination[]
 1. **Clone the repository**
 ```bash
 git clone <repository-url>
-cd moroccan_currencies
+cd currencito
 ```
 
 2. **Install dependencies**

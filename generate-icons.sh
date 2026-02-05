@@ -3,8 +3,8 @@
 # Create various icon sizes for PWA
 # Using ImageMagick or sips (macOS)
 
-INPUT="/Volumes/Data/moroccan_currencies/public/icon-512.png"
-OUTPUT_DIR="/Volumes/Data/moroccan_currencies/public"
+INPUT="/Volumes/Data/currencito/public/icon-512.png"
+OUTPUT_DIR="/Volumes/Data/currencito/public"
 
 # Create different sizes
 sips -z 192 192 "$INPUT" --out "$OUTPUT_DIR/icon-192.png"
