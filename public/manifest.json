@@ -1,11 +1,11 @@
 {
     "name": "Currencito - Moroccan Currency Converter",
     "short_name": "Currencito",
-    "description": "Convert between Moroccan Dirham, Riyal, Franc, and world currencies",
+    "description": "Convert world currencies",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#4F46E5",
+    "theme_color": "#05EFF9",
     "orientation": "portrait-primary",
     "icons": [
         {
