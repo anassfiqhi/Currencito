@@ -14,13 +14,13 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: "#4F46E5",
+  themeColor: "#05EFF9",
 };
 
 export const metadata: Metadata = {
-  title: "Currencito - Moroccan Currency Converter",
-  description: "Convert Moroccan Dirham (MAD), Riyal, and Franc to world currencies with real-time exchange rates. See exact breakdown of coins and banknotes needed.",
-  keywords: ["Moroccan Dirham", "MAD", "currency converter", "exchange rate", "Morocco", "Riyal", "Franc"],
+  title: "Currencito - World Currency Converter",
+  description: "Convert world currencies with real-time exchange rates. See exact breakdown of coins and banknotes needed.",
+  keywords: ["currency converter", "exchange rate", "world currencies"],
   manifest: "/manifest.json",
   icons: {
     icon: [
