@@ -39,7 +39,7 @@ export function CurrencySelect({ value, onChange }: CurrencySelectProps) {
 
     const CurrencyList = ({ className }: { className?: string }) => (
         <div className={cn("grid gap-2", className)}>
-            <div className="px-2 py-1.5 text-sm font-semibold text-gray-600 dark:text-gray-400">Moroccan Currencies</div>
+            <div className="px-2 py-1.5 text-sm font-semibold text-muted-foreground">Moroccan Currencies</div>
             {MOROCCAN_CURRENCIES.map((currency) => (
                 <div
                     key={currency.code}
@@ -48,18 +48,18 @@ export function CurrencySelect({ value, onChange }: CurrencySelectProps) {
                         setOpen(false);
                     }}
                     className={cn(
-                        "flex items-center gap-3 p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer",
-                        value === currency.code && "bg-gray-100 dark:bg-gray-800"
+                        "flex items-center gap-3 p-2 rounded-md hover:bg-muted cursor-pointer",
+                        value === currency.code && "bg-muted"
                     )}
                 >
                     <span className="text-xl">{currency.flag}</span>
                     <div className="flex flex-col items-start">
-                        <span className="font-semibold text-gray-900 dark:text-white">{currency.code}</span>
-                        <span className="text-xs text-gray-600 dark:text-gray-400">{currency.name}</span>
+                        <span className="font-semibold text-foreground">{currency.code}</span>
+                        <span className="text-xs text-muted-foreground">{currency.name}</span>
                     </div>
                 </div>
             ))}
-            <div className="px-2 py-1.5 text-sm font-semibold text-gray-600 dark:text-gray-400 mt-2">World Currencies</div>
+            <div className="px-2 py-1.5 text-sm font-semibold text-muted-foreground mt-2">World Currencies</div>
             {WORLD_CURRENCIES.map((currency) => (
                 <div
                     key={currency.code}
@@ -68,14 +68,14 @@ export function CurrencySelect({ value, onChange }: CurrencySelectProps) {
                         setOpen(false);
                     }}
                     className={cn(
-                        "flex items-center gap-3 p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer",
-                        value === currency.code && "bg-gray-100 dark:bg-gray-800"
+                        "flex items-center gap-3 p-2 rounded-md hover:bg-muted cursor-pointer",
+                        value === currency.code && "bg-muted"
                     )}
                 >
                     <span className="text-xl">{currency.flag}</span>
                     <div className="flex flex-col items-start">
-                        <span className="font-semibold text-gray-900 dark:text-white">{currency.code}</span>
-                        <span className="text-xs text-gray-600 dark:text-gray-400">{currency.name}</span>
+                        <span className="font-semibold text-foreground">{currency.code}</span>
+                        <span className="text-xs text-muted-foreground">{currency.name}</span>
                     </div>
                 </div>
             ))}
@@ -90,7 +90,7 @@ export function CurrencySelect({ value, onChange }: CurrencySelectProps) {
             <Button variant="ghost" className="w-auto p-0 h-auto hover:bg-transparent font-normal">
                 <div className="flex items-center gap-2">
                     <span className="text-2xl">{CURRENCIES[value].flag}</span>
-                    <span className="font-bold text-gray-900 dark:text-white text-sm">
+                    <span className="font-bold text-foreground text-sm">
                         {CURRENCIES[value].code}
                     </span>
                 </div>
@@ -108,44 +108,44 @@ export function CurrencySelect({ value, onChange }: CurrencySelectProps) {
                     <SelectValue>
                         <div className="flex items-center gap-2">
                             <span className="text-2xl">{CURRENCIES[value].flag}</span>
-                            <span className="font-bold text-gray-900 dark:text-white text-sm">
+                            <span className="font-bold text-foreground text-sm">
                                 {CURRENCIES[value].code}
                             </span>
                         </div>
                     </SelectValue>
                 </SelectTrigger>
-                <SelectContent className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 max-h-[300px]">
+                <SelectContent className="bg-popover border-border max-h-[300px]">
                     <SelectGroup>
-                        <SelectLabel className="text-gray-600 dark:text-gray-400">Moroccan Currencies</SelectLabel>
+                        <SelectLabel className="text-muted-foreground">Moroccan Currencies</SelectLabel>
                         {MOROCCAN_CURRENCIES.map((currency) => (
                             <SelectItem
                                 key={currency.code}
                                 value={currency.code}
-                                className="hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+                                className="hover:bg-muted cursor-pointer focus:bg-muted"
                             >
                                 <div className="flex items-center gap-3">
                                     <span className="text-xl">{currency.flag}</span>
                                     <div className="flex flex-col items-start">
-                                        <span className="font-semibold text-gray-900 dark:text-white">{currency.code}</span>
-                                        <span className="text-xs text-gray-600 dark:text-gray-400">{currency.name}</span>
+                                        <span className="font-semibold text-foreground">{currency.code}</span>
+                                        <span className="text-xs text-muted-foreground">{currency.name}</span>
                                     </div>
                                 </div>
                             </SelectItem>
                         ))}
                     </SelectGroup>
                     <SelectGroup>
-                        <SelectLabel className="text-gray-600 dark:text-gray-400 mt-2">World Currencies</SelectLabel>
+                        <SelectLabel className="text-muted-foreground mt-2">World Currencies</SelectLabel>
                         {WORLD_CURRENCIES.map((currency) => (
                             <SelectItem
                                 key={currency.code}
                                 value={currency.code}
-                                className="hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+                                className="hover:bg-muted cursor-pointer focus:bg-muted"
                             >
                                 <div className="flex items-center gap-3">
                                     <span className="text-xl">{currency.flag}</span>
                                     <div className="flex flex-col items-start">
-                                        <span className="font-semibold text-gray-900 dark:text-white">{currency.code}</span>
-                                        <span className="text-xs text-gray-600 dark:text-gray-400">{currency.name}</span>
+                                        <span className="font-semibold text-foreground">{currency.code}</span>
+                                        <span className="text-xs text-muted-foreground">{currency.name}</span>
                                     </div>
                                 </div>
                             </SelectItem>
@@ -162,14 +162,14 @@ export function CurrencySelect({ value, onChange }: CurrencySelectProps) {
                 <Button variant="ghost" className="w-auto p-0 h-auto hover:bg-transparent font-normal shadow-none">
                     <div className="flex items-center gap-2">
                         <span className="text-2xl">{CURRENCIES[value].flag}</span>
-                        <span className="font-bold text-gray-900 dark:text-white text-sm">
+                        <span className="font-bold text-foreground text-sm">
                             {CURRENCIES[value].code}
                         </span>
                         <ChevronDown className="h-4 w-4 opacity-50" />
                     </div>
                 </Button>
             </DrawerTrigger>
-            <DrawerContent className="max-h-[80vh]">
+            <DrawerContent className="max-h-[80vh] bg-background border-border">
                 <div className="p-4 overflow-y-auto">
                     <CurrencyList />
                 </div>

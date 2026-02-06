@@ -102,13 +102,13 @@ export function CurrencyConverter() {
     return (
         <div className="w-full max-w-4xl mx-auto space-y-6">
             {/* Main Converter Card */}
-            <Card className="w-full bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 shadow-2xl">
+            <Card className="w-full bg-card border-border shadow-2xl">
                 <CardContent className="p-6 md:p-8">
                     {/* Amount Input Fields */}
                     <div className="flex flex-col md:flex-row gap-4 items-center">
                         {/* From Section */}
-                        <div className="flex-1 w-full p-4 rounded-xl border-2 border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-900/20 transition-all hover:border-blue-300 dark:hover:border-blue-700 focus-within:border-blue-500 dark:focus-within:border-blue-500">
-                            <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-2">
+                        <div className="flex-1 w-full p-4 rounded-xl border border-input bg-secondary/50 transition-all hover:border-primary/50 focus-within:border-primary">
+                            <label className="block text-xs font-medium text-muted-foreground mb-2">
                                 From
                             </label>
                             <div className="flex items-center gap-3">
@@ -117,7 +117,7 @@ export function CurrencyConverter() {
                                     inputMode="decimal"
                                     value={fromValue}
                                     onChange={handleFromAmountChange}
-                                    className="text-2xl font-bold border-0 bg-transparent p-0 h-auto text-gray-900 dark:text-white focus-visible:ring-0 focus-visible:ring-offset-0"
+                                    className="text-2xl font-bold border-0 bg-transparent p-0 h-auto text-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
                                     placeholder="100"
                                     data-testid="from-amount-input"
                                 />
@@ -135,15 +135,15 @@ export function CurrencyConverter() {
                             onClick={handleSwap}
                             variant="outline"
                             size="icon"
-                            className="shrink-0 h-12 w-12 rounded-full border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-110 transition-all"
+                            className="shrink-0 h-12 w-12 rounded-full border border-input bg-background hover:bg-muted hover:scale-110 transition-all"
                             data-testid="swap-button"
                         >
-                            <ArrowRightLeft className="h-5 w-5 text-gray-700 dark:text-gray-300 rotate-90 md:rotate-0" />
+                            <ArrowRightLeft className="h-5 w-5 text-muted-foreground rotate-90 md:rotate-0" />
                         </Button>
 
                         {/* To Section */}
-                        <div className="flex-1 w-full p-4 rounded-xl border-2 border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700/50 transition-all hover:border-gray-400 dark:hover:border-gray-500 focus-within:border-blue-500 dark:focus-within:border-blue-500">
-                            <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-2">
+                        <div className="flex-1 w-full p-4 rounded-xl border border-input bg-muted/50 transition-all hover:border-primary/50 focus-within:border-primary">
+                            <label className="block text-xs font-medium text-muted-foreground mb-2">
                                 To
                             </label>
                             <div className="flex items-center gap-3">
@@ -152,7 +152,7 @@ export function CurrencyConverter() {
                                     inputMode="decimal"
                                     value={toValue}
                                     onChange={handleToAmountChange}
-                                    className="text-2xl font-bold border-0 bg-transparent p-0 h-auto text-gray-900 dark:text-white focus-visible:ring-0 focus-visible:ring-offset-0"
+                                    className="text-2xl font-bold border-0 bg-transparent p-0 h-auto text-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
                                     placeholder={isLoading ? '...' : '0.00'}
                                     data-testid="to-amount-input"
                                 />
@@ -168,14 +168,14 @@ export function CurrencyConverter() {
 
                     {/* Exchange Rate Display */}
                     {rate && rate !== 1 && (fromValue || toValue) && (
-                        <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                        <div className="mt-6 pt-6 border-t border-border">
                             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
                                 <div>
-                                    <p className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white">
+                                    <p className="text-lg md:text-xl font-semibold text-foreground">
                                         1 {fromCurrency} = {rate.toFixed(6)} {toCurrency}
                                     </p>
                                     {exchangeRates && (
-                                        <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                                        <p className="text-sm text-muted-foreground mt-1">
                                             Live exchange rate • Updated {new Date().toLocaleTimeString()}
                                         </p>
                                     )}
