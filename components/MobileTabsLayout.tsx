@@ -1,0 +1,63 @@
+'use client';
+
+import * as React from 'react';
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Home, Settings, Menu } from 'lucide-react';
+import { CurrencyConverterWithUrl } from './CurrencyConverterWithUrl';
+import { SettingsView } from './SettingsView';
+import { MoreView } from './MoreView';
+
+export function MobileTabsLayout() {
+    return (
+        <Tabs defaultValue="converter" className="w-full h-full">
+            <div className="h-full overflow-y-auto">
+                <TabsContent value="converter" className="m-0 h-full">
+                    {/* Reusing existing Converter, adding padding for bottom nav */}
+                    <div className="pb-24">
+                        <div className="text-center mb-8 px-4 pt-8">
+                            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                                Currencito
+                            </h1>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                                World Currency Converter
+                            </p>
+                        </div>
+                        <React.Suspense fallback={<div className="text-center text-gray-600 dark:text-gray-400">Loading converter...</div>}>
+                            <CurrencyConverterWithUrl />
+                        </React.Suspense>
+                        {/* Info Widget */}
+                        <div className="mt-8 px-4">
+                            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
+                                <p className="text-xs text-center text-gray-700 dark:text-gray-300">
+                                    1 MAD = 20 Riyals • 1 MAD = 100 Francs
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </TabsContent>
+                <TabsContent value="settings" className="m-0 h-full">
+                    <SettingsView />
+                </TabsContent>
+                <TabsContent value="more" className="m-0 h-full">
+                    <MoreView />
+                </TabsContent>
+            </div>
+
+            <TabsList className="sticky bottom-0 left-0 right-0 z-50 flex justify-around h-16! w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 rounded-none pb- safe-area-inset-bottom">
+                <TabsTrigger value="converter" className="flex flex-col items-center justify-center gap-1 h-full flex-1 data-[state=active]:text-blue-600 data-[state=active]:bg-transparent rounded-none border-t-2 border-transparent data-[state=active]:border-blue-600 transition-none">
+                    <Home className="h-5 w-5" />
+                    <span className="text-xs">Home</span>
+                </TabsTrigger>
+                <TabsTrigger value="settings" className="flex flex-col items-center justify-center gap-1 h-full flex-1 data-[state=active]:text-blue-600 data-[state=active]:bg-transparent rounded-none border-t-2 border-transparent data-[state=active]:border-blue-600 transition-none">
+                    <Settings className="h-5 w-5" />
+                    <span className="text-xs">Settings</span>
+                </TabsTrigger>
+                <TabsTrigger value="more" className="flex flex-col items-center justify-center gap-1 h-full flex-1 data-[state=active]:text-blue-600 data-[state=active]:bg-transparent rounded-none border-t-2 border-transparent data-[state=active]:border-blue-600 transition-none">
+                    <Menu className="h-5 w-5" />
+                    <span className="text-xs">More</span>
+                </TabsTrigger>
+            </TabsList>
+        </Tabs>
+    );
+}
