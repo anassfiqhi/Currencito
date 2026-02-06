@@ -6,7 +6,7 @@ describe('Currency Converter - Basic Functionality', () => {
     });
 
     it('should load the homepage successfully', () => {
-        cy.contains('Moroccan Currency Converter').should('be.visible');
+        cy.contains('World Currency Converter').should('be.visible');
         cy.contains('Convert between Dirham, Riyal, Franc, and world currencies').should('be.visible');
     });
 

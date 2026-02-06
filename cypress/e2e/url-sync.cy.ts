@@ -47,7 +47,7 @@ describe('Currency Converter - URL Synchronization', () => {
         cy.visit('/?from=INVALID&to=FAKE&amount=abc');
 
         // Should still load without errors
-        cy.contains('Moroccan Currency Converter').should('be.visible');
+        cy.contains('World Currency Converter').should('be.visible');
         cy.get('[data-testid="from-amount-input"]').should('exist');
     });
 

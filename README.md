@@ -1,4 +1,4 @@
-# Moroccan Currency Converter
+# World Currency Converter
 
 A modern, feature-rich currency converter application specializing in Moroccan currencies (Dirham, Riyal, Franc) with support for major world currencies. Built with Next.js 15, TypeScript, Redux Toolkit, and TanStack Query.
 

@@ -57,7 +57,7 @@ describe('Currency Converter - Input Validation', () => {
         cy.get('[data-testid="from-amount-input"]').clear();
 
         // Should not cause errors
-        cy.contains('Moroccan Currency Converter').should('be.visible');
+        cy.contains('World Currency Converter').should('be.visible');
     });
 
     it('should handle multiple decimal points', () => {

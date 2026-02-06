@@ -8,7 +8,7 @@ export default function Home() {
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2 md:mb-4">
-            Moroccan Currency Converter
+            World Currency Converter
           </h1>
           <p className="text-base md:text-xl text-gray-600 dark:text-gray-400">
             Convert between Dirham, Riyal, Franc, and world currencies
