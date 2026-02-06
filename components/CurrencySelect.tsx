@@ -20,6 +20,7 @@ import {
 import { CURRENCIES, MOROCCAN_CURRENCIES, WORLD_CURRENCIES } from '@/lib/currency/constants';
 import type { Currency } from '@/lib/currency/types';
 import { cn } from '@/lib/utils'; // Assuming cn exists, added it
+import { ChevronDown } from 'lucide-react';
 
 interface CurrencySelectProps {
     value: Currency;
@@ -164,6 +165,7 @@ export function CurrencySelect({ value, onChange }: CurrencySelectProps) {
                         <span className="font-bold text-gray-900 dark:text-white text-sm">
                             {CURRENCIES[value].code}
                         </span>
+                        <ChevronDown className="h-4 w-4 opacity-50" />
                     </div>
                 </Button>
             </DrawerTrigger>
