@@ -59,7 +59,7 @@ export default function Home() {
 
           <div className="mt-8 p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
             <p className="text-sm text-gray-700 dark:text-gray-300 text-center">
-              💡 <strong>Tip:</strong> When converting to MAD, you'll see the exact breakdown of coins and banknotes needed!
+              💡 <strong>Tip:</strong> See the exact breakdown of coins and banknotes needed for any currency!
             </p>
           </div>
         </div>

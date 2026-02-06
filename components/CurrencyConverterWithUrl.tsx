@@ -49,13 +49,9 @@ export function CurrencyConverterWithUrl() {
 
         const params = new URLSearchParams();
 
-        // Only add params if they differ from defaults
-        if (fromCurrency !== 'MAD') {
-            params.set('from', fromCurrency);
-        }
-        if (toCurrency !== 'USD') {
-            params.set('to', toCurrency);
-        }
+        // Always add currency params to URL
+        params.set('from', fromCurrency);
+        params.set('to', toCurrency);
 
         // Use the 'from' amount if it exists, otherwise don't add to URL
         if (amount && amount !== '') {

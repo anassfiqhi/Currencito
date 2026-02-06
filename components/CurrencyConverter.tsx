@@ -49,10 +49,6 @@ export function CurrencyConverter() {
         dispatch(setToCurrency(currency));
     };
 
-    const handleSwap = () => {
-        dispatch(swapCurrencies());
-    };
-
     // Calculate result based on which field has a value
     let fromValue = '';
     let toValue = '';
@@ -64,9 +60,7 @@ export function CurrencyConverter() {
         if (numAmount > 0 && exchangeRates) {
             const result = convertCurrency(numAmount, fromCurrency, toCurrency, exchangeRates.rates);
             toValue = result.toFixed(2);
-            if (toCurrency === 'MAD') {
-                denominationAmount = result;
-            }
+            denominationAmount = result;
         }
     } else if (toAmount && !amount) {
         const numToAmount = parseFloat(toAmount) || 0;
@@ -74,16 +68,36 @@ export function CurrencyConverter() {
         if (numToAmount > 0 && exchangeRates) {
             const result = convertCurrency(numToAmount, toCurrency, fromCurrency, exchangeRates.rates);
             fromValue = result.toFixed(2);
-            if (toCurrency === 'MAD') {
-                denominationAmount = numToAmount;
-            }
+            denominationAmount = numToAmount;
         }
     }
+
+    const handleSwap = () => {
+        if (amount && !toAmount && toValue) {
+            // If we have a calculated 'to' value, use it as the new 'from' amount
+            dispatch(setAmount(toValue));
+            dispatch(setFromCurrency(toCurrency));
+            dispatch(setToCurrency(fromCurrency));
+        } else if (toAmount && !amount && fromValue) {
+            // If we have a calculated 'from' value (user typed in To), use it as new 'to' amount?
+            // Standard swap would make amount=toAmount, toAmount=amount(empty).
+            // That puts the typed value into 'from', and clears 'to'. That's usually fine.
+            // But if we want to be symmetric...
+            // Standard swap: new Amount = old ToAmount. new ToAmount = old Amount (empty).
+            // The new calculation will be: calculate To from Amount.
+            // So 1000 MAD (typed) -> ??? USD.
+            // Swap -> 1000 USD -> ??? MAD.
+            // That seems correct behavior for typing in To.
+            dispatch(swapCurrencies());
+        } else {
+            dispatch(swapCurrencies());
+        }
+    };
 
     const rate =
         exchangeRates && getExchangeRate(fromCurrency, toCurrency, exchangeRates.rates);
 
-    const denominations = denominationAmount > 0 ? calculateDenominations(denominationAmount) : [];
+    const denominations = denominationAmount > 0 ? calculateDenominations(denominationAmount, toCurrency) : [];
 
     return (
         <div className="w-full max-w-4xl mx-auto space-y-6">
@@ -174,7 +188,11 @@ export function CurrencyConverter() {
 
             {/* Denomination Breakdown */}
             {denominations.length > 0 && (
-                <DenominationBreakdown denominations={denominations} total={denominationAmount} />
+                <DenominationBreakdown
+                    denominations={denominations}
+                    total={denominationAmount}
+                    currency={toCurrency}
+                />
             )}
         </div>
     );

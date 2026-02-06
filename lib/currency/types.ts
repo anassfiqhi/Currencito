@@ -20,7 +20,7 @@ export interface CurrencyInfo {
 export interface Denomination {
     value: number;
     type: 'note' | 'coin';
-    imageUrl: string;
+    imageUrl?: string;
     count?: number;
 }
 
