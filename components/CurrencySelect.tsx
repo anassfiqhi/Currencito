@@ -3,9 +3,12 @@
 import * as React from 'react';
 import { useMediaQuery } from '@/lib/hooks/use-media-query';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import {
     Drawer,
     DrawerContent,
+    DrawerHeader,
+    DrawerTitle,
     DrawerTrigger,
 } from '@/components/ui/drawer';
 import {
@@ -20,7 +23,7 @@ import {
 import { CURRENCIES, MOROCCAN_CURRENCIES, WORLD_CURRENCIES } from '@/lib/currency/constants';
 import type { Currency } from '@/lib/currency/types';
 import { cn } from '@/lib/utils'; // Assuming cn exists, added it
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Search } from 'lucide-react';
 
 interface CurrencySelectProps {
     value: Currency;
@@ -29,6 +32,7 @@ interface CurrencySelectProps {
 
 export function CurrencySelect({ value, onChange }: CurrencySelectProps) {
     const [open, setOpen] = React.useState(false);
+    const [searchQuery, setSearchQuery] = React.useState('');
     const isDesktop = useMediaQuery('(min-width: 768px)');
     // Avoid hydration mismatch by waiting for mount
     const [mounted, setMounted] = React.useState(false);
@@ -37,48 +41,80 @@ export function CurrencySelect({ value, onChange }: CurrencySelectProps) {
         setMounted(true);
     }, []);
 
+    // Reset search when drawer opens/closes
+    React.useEffect(() => {
+        if (!open) {
+            setSearchQuery('');
+        }
+    }, [open]);
+
+    const filteredMoroccan = MOROCCAN_CURRENCIES.filter(
+        c => c.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            c.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    const filteredWorld = WORLD_CURRENCIES.filter(
+        c => c.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            c.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
     const CurrencyList = ({ className }: { className?: string }) => (
         <div className={cn("grid gap-2", className)}>
-            <div className="px-2 py-1.5 text-sm font-semibold text-muted-foreground">Moroccan Currencies</div>
-            {MOROCCAN_CURRENCIES.map((currency) => (
-                <div
-                    key={currency.code}
-                    onClick={() => {
-                        onChange(currency.code);
-                        setOpen(false);
-                    }}
-                    className={cn(
-                        "flex items-center gap-3 p-2 rounded-md hover:bg-muted cursor-pointer",
-                        value === currency.code && "bg-muted"
-                    )}
-                >
-                    <span className="text-xl">{currency.flag}</span>
-                    <div className="flex flex-col items-start">
-                        <span className="font-semibold text-foreground">{currency.code}</span>
-                        <span className="text-xs text-muted-foreground">{currency.name}</span>
-                    </div>
+            {filteredMoroccan.length > 0 && (
+                <>
+                    <div className="px-2 py-1.5 text-sm font-semibold text-muted-foreground">Moroccan Currencies</div>
+                    {filteredMoroccan.map((currency) => (
+                        <div
+                            key={currency.code}
+                            onClick={() => {
+                                onChange(currency.code);
+                                setOpen(false);
+                            }}
+                            className={cn(
+                                "flex items-center gap-3 p-2 rounded-md hover:bg-muted cursor-pointer",
+                                value === currency.code && "bg-muted"
+                            )}
+                        >
+                            <span className="text-xl">{currency.flag}</span>
+                            <div className="flex flex-col items-start">
+                                <span className="font-semibold text-foreground">{currency.code}</span>
+                                <span className="text-xs text-muted-foreground">{currency.name}</span>
+                            </div>
+                        </div>
+                    ))}
+                </>
+            )}
+
+            {filteredWorld.length > 0 && (
+                <>
+                    <div className="px-2 py-1.5 text-sm font-semibold text-muted-foreground mt-2">World Currencies</div>
+                    {filteredWorld.map((currency) => (
+                        <div
+                            key={currency.code}
+                            onClick={() => {
+                                onChange(currency.code);
+                                setOpen(false);
+                            }}
+                            className={cn(
+                                "flex items-center gap-3 p-2 rounded-md hover:bg-muted cursor-pointer",
+                                value === currency.code && "bg-muted"
+                            )}
+                        >
+                            <span className="text-xl">{currency.flag}</span>
+                            <div className="flex flex-col items-start">
+                                <span className="font-semibold text-foreground">{currency.code}</span>
+                                <span className="text-xs text-muted-foreground">{currency.name}</span>
+                            </div>
+                        </div>
+                    ))}
+                </>
+            )}
+
+            {filteredMoroccan.length === 0 && filteredWorld.length === 0 && (
+                <div className="p-4 text-center text-muted-foreground">
+                    No currencies found.
                 </div>
-            ))}
-            <div className="px-2 py-1.5 text-sm font-semibold text-muted-foreground mt-2">World Currencies</div>
-            {WORLD_CURRENCIES.map((currency) => (
-                <div
-                    key={currency.code}
-                    onClick={() => {
-                        onChange(currency.code);
-                        setOpen(false);
-                    }}
-                    className={cn(
-                        "flex items-center gap-3 p-2 rounded-md hover:bg-muted cursor-pointer",
-                        value === currency.code && "bg-muted"
-                    )}
-                >
-                    <span className="text-xl">{currency.flag}</span>
-                    <div className="flex flex-col items-start">
-                        <span className="font-semibold text-foreground">{currency.code}</span>
-                        <span className="text-xs text-muted-foreground">{currency.name}</span>
-                    </div>
-                </div>
-            ))}
+            )}
         </div>
     );
 
@@ -169,8 +205,20 @@ export function CurrencySelect({ value, onChange }: CurrencySelectProps) {
                     </div>
                 </Button>
             </DrawerTrigger>
-            <DrawerContent className="max-h-[80vh] bg-background border-border">
-                <div className="p-4 overflow-y-auto">
+            <DrawerContent className="h-[85vh] bg-background border-border">
+                <DrawerHeader className="px-4 pb-2">
+                    <DrawerTitle className="text-foreground mb-4">Select Currency</DrawerTitle>
+                    <div className="relative">
+                        <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                        <Input
+                            placeholder="Search currency..."
+                            className="bg-secondary/50 border-input pl-9"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                    </div>
+                </DrawerHeader>
+                <div className="p-4 overflow-y-auto pt-2 flex-1">
                     <CurrencyList />
                 </div>
             </DrawerContent>
