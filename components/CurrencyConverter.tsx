@@ -111,7 +111,7 @@ export function CurrencyConverter() {
                     {/* Amount Input Fields */}
                     <div className="flex flex-col md:flex-row gap-4 items-center">
                         {/* From Section */}
-                        <div className="flex-1 w-full p-4 rounded-xl border border-input bg-secondary/50 transition-all hover:border-primary/50 focus-within:border-primary">
+                        <div className="flex-1 w-full p-4 rounded-xl border border-input bg-secondary/50 transition-all hover:border-primary/60 focus-within:border-primary">
                             <label className="block text-xs font-medium text-muted-foreground mb-2">
                                 From
                             </label>

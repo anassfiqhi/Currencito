@@ -148,17 +148,20 @@
 
   /* Selection */
   ::selection {
-    background-color: var(--primary);
-    color: var(--primary-foreground);
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+    border-radius: 10px;
   }
 
   ::-moz-selection {
-    background-color: var(--primary);
-    color: var(--primary-foreground);
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+    border-radius: 10px;
   }
 
   ::-webkit-selection {
-    background-color: var(--primary);
-    color: var(--primary-foreground);
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+    border-radius: 10px;
   }
 }
