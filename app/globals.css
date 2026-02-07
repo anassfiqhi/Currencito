@@ -120,27 +120,28 @@
   * {
     @apply border-border outline-ring/50;
   }
-  
+
   body {
     @apply bg-background text-foreground;
     min-height: 100vh;
   }
-  
+
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 10px;
   }
-  
+
   ::-webkit-scrollbar-track {
-    background: rgba(30, 41, 59, 0.5);
+    background: transparent;
   }
-  
+
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, rgb(6, 182, 212), rgb(59, 130, 246));
+    background: linear-gradient(to bottom, var(--primary), var(--primary));
     border-radius: 5px;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, rgb(34, 211, 238), rgb(96, 165, 250));
+    background: linear-gradient(to bottom, var(--primary), var(--primary));
+    opacity: 0.8;
   }
 }
