@@ -10,17 +10,17 @@ export const MOROCCAN_RATES = {
 export const CURRENCY_DENOMINATIONS: Record<Currency, Omit<Denomination, 'count'>[]> = {
     // Moroccan Dirham
     MAD: [
-        { value: 200, type: 'note', imageUrl: '/currency/svg/mad-200-note.svg' },
-        { value: 100, type: 'note', imageUrl: '/currency/svg/mad-100-note.svg' },
-        { value: 50, type: 'note', imageUrl: '/currency/svg/mad-50-note.svg' },
-        { value: 20, type: 'note', imageUrl: '/currency/svg/mad-20-note.svg' },
-        { value: 10, type: 'coin', imageUrl: '/currency/mad-10-coin.png' },
-        { value: 5, type: 'coin', imageUrl: '/currency/mad-5-coin.png' },
-        { value: 2, type: 'coin', imageUrl: '/currency/mad-2-coin.png' },
-        { value: 1, type: 'coin', imageUrl: '/currency/mad-1-coin.png' },
-        { value: 0.5, type: 'coin', imageUrl: '/currency/mad-050-coin.png' },
-        { value: 0.2, type: 'coin', imageUrl: '/currency/mad-020-coin.png' },
-        { value: 0.1, type: 'coin', imageUrl: '/currency/mad-010-coin.png' },
+        { value: 200, type: 'note' },
+        { value: 100, type: 'note' },
+        { value: 50, type: 'note' },
+        { value: 20, type: 'note' },
+        { value: 10, type: 'coin' },
+        { value: 5, type: 'coin' },
+        { value: 2, type: 'coin' },
+        { value: 1, type: 'coin' },
+        { value: 0.5, type: 'coin' },
+        { value: 0.2, type: 'coin' },
+        { value: 0.1, type: 'coin' },
     ],
     // US Dollar
     USD: [
