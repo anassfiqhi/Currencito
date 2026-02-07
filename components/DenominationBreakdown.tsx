@@ -35,7 +35,7 @@ export function DenominationBreakdown({
                         <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide">
                             Banknotes
                         </h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                             {notes.map((denom) => (
                                 <div
                                     key={denom.value}
@@ -77,7 +77,7 @@ export function DenominationBreakdown({
                         <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide">
                             Coins
                         </h3>
-                        <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
+                        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-3">
                             {coins.map((denom) => (
                                 <div
                                     key={denom.value}
