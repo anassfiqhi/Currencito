@@ -12,6 +12,7 @@ import {
 import { useExchangeRates } from '@/lib/query/hooks/useExchangeRates';
 import { convertCurrency, getExchangeRate } from '@/lib/currency/converter';
 import { calculateDenominations } from '@/lib/currency/denominations';
+import { CurrencyConverterSkeleton } from './CurrencyConverterSkeleton';
 import { CURRENCIES } from '@/lib/currency/constants';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -102,6 +103,10 @@ export function CurrencyConverter() {
         exchangeRates && getExchangeRate(fromCurrency, toCurrency, exchangeRates.rates);
 
     const denominations = denominationAmount > 0 ? calculateDenominations(denominationAmount, toCurrency) : [];
+
+    if (isLoading && !exchangeRates) {
+        return <CurrencyConverterSkeleton />;
+    }
 
     return (
         <div className="w-full max-w-4xl mx-auto space-y-6">

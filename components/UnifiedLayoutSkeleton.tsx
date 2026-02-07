@@ -1,4 +1,5 @@
 import { Skeleton } from "@/components/ui/skeleton";
+import { CurrencyConverterSkeleton } from "./CurrencyConverterSkeleton";
 
 export function UnifiedLayoutSkeleton() {
     return (
@@ -27,18 +28,7 @@ export function UnifiedLayoutSkeleton() {
                         </div>
 
                         {/* Converter Skeleton */}
-                        <div className="space-y-4">
-                            <Skeleton className="h-[120px] w-full rounded-xl" />
-                            <div className="flex justify-center -my-3 relative z-10">
-                                <Skeleton className="h-10 w-10 rounded-full" />
-                            </div>
-                            <Skeleton className="h-[120px] w-full rounded-xl" />
-                        </div>
-
-                        {/* Breakdown Skeleton */}
-                        <div className="mt-8">
-                            <Skeleton className="h-24 w-full rounded-xl" />
-                        </div>
+                        <CurrencyConverterSkeleton />
                     </div>
 
                     {/* Mobile Tabs Skeleton */}
@@ -62,15 +52,7 @@ export function UnifiedLayoutSkeleton() {
                     </div>
 
                     <div className="max-w-xl mx-auto space-y-4">
-                        <Skeleton className="h-[140px] w-full rounded-xl" />
-                        <div className="flex justify-center -my-3 relative z-10">
-                            <Skeleton className="h-12 w-12 rounded-full" />
-                        </div>
-                        <Skeleton className="h-[140px] w-full rounded-xl" />
-                    </div>
-
-                    <div className="max-w-xl mx-auto mt-8">
-                        <Skeleton className="h-32 w-full rounded-xl" />
+                        <CurrencyConverterSkeleton />
                     </div>
                 </div>
             </div>
