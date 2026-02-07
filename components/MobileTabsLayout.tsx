@@ -3,10 +3,9 @@
 import * as React from 'react';
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Home, Settings, Menu } from 'lucide-react';
+import { Home, Settings } from 'lucide-react';
 import { CurrencyConverterWithUrl } from './CurrencyConverterWithUrl';
 import { SettingsView } from './SettingsView';
-import { MoreView } from './MoreView';
 
 export function MobileTabsLayout() {
     return (
@@ -39,9 +38,6 @@ export function MobileTabsLayout() {
                 <TabsContent value="settings" className="m-0 h-full">
                     <SettingsView />
                 </TabsContent>
-                <TabsContent value="more" className="m-0 h-full">
-                    <MoreView />
-                </TabsContent>
             </div>
 
             <TabsList className="sticky bottom-0 left-0 right-0 z-50 flex justify-around h-16! w-full bg-background border-t border-border rounded-none pb- safe-area-inset-bottom">
@@ -52,10 +48,6 @@ export function MobileTabsLayout() {
                 <TabsTrigger value="settings" className="flex flex-col items-center justify-center gap-1 h-full flex-1 data-[state=active]:text-primary data-[state=active]:bg-transparent rounded-none border-t-2 border-transparent data-[state=active]:border-primary transition-none text-muted-foreground">
                     <Settings className="h-5 w-5" />
                     <span className="text-xs">Settings</span>
-                </TabsTrigger>
-                <TabsTrigger value="more" className="flex flex-col items-center justify-center gap-1 h-full flex-1 data-[state=active]:text-primary data-[state=active]:bg-transparent rounded-none border-t-2 border-transparent data-[state=active]:border-primary transition-none text-muted-foreground">
-                    <Menu className="h-5 w-5" />
-                    <span className="text-xs">More</span>
                 </TabsTrigger>
             </TabsList>
         </Tabs>

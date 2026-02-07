@@ -4,6 +4,8 @@ import "./globals.css";
 import { StoreProvider } from "@/lib/store/StoreProvider";
 import { QueryProvider } from "@/lib/query/QueryProvider";
 
+import { ThemeProvider } from "@/components/theme-provider";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -44,13 +46,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`}>
-        <StoreProvider>
-          <QueryProvider>
-            {children}
-          </QueryProvider>
-        </StoreProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <StoreProvider>
+            <QueryProvider>
+              {children}
+            </QueryProvider>
+          </StoreProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
