@@ -42,7 +42,7 @@ export function DenominationBreakdown({
                                     className="group relative overflow-hidden rounded-lg border border-border bg-card/50 p-3 hover:border-primary/50 hover:bg-accent/50 transition-all duration-300"
                                 >
                                     {denom.imageUrl ? (
-                                        <div className="aspect-[2/1] relative mb-2 rounded overflow-hidden">
+                                        <div className="aspect-2/1 relative mb-2 rounded overflow-hidden">
                                             <Image
                                                 src={denom.imageUrl}
                                                 alt={`${denom.value} ${currency} note`}
@@ -52,8 +52,8 @@ export function DenominationBreakdown({
                                             />
                                         </div>
                                     ) : (
-                                        <div className="aspect-[2/1] relative mb-2 rounded overflow-hidden bg-muted flex items-center justify-center border border-border">
-                                            <span className="text-2xl font-bold text-foreground">
+                                        <div className="aspect-2/1 relative mb-2 rounded overflow-hidden flex items-center justify-center border border-emerald-500/20 bg-emerald-500/10 shadow-sm">
+                                            <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">
                                                 {denom.value}
                                             </span>
                                         </div>
@@ -94,8 +94,8 @@ export function DenominationBreakdown({
                                             />
                                         </div>
                                     ) : (
-                                        <div className="aspect-square relative mb-2 rounded-full overflow-hidden bg-muted border border-border flex items-center justify-center">
-                                            <span className="text-lg font-bold text-foreground">
+                                        <div className="aspect-square relative mb-2 rounded-full overflow-hidden flex items-center justify-center border border-amber-500/20 bg-amber-500/10 shadow-sm">
+                                            <span className="text-lg font-bold text-amber-700 dark:text-amber-400">
                                                 {denom.value}
                                             </span>
                                         </div>
@@ -112,8 +112,9 @@ export function DenominationBreakdown({
                             ))}
                         </div>
                     </div>
-                )}
-            </CardContent>
-        </Card>
+                )
+                }
+            </CardContent >
+        </Card >
     );
 }
