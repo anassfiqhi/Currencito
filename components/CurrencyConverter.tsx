@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useAppSelector, useAppDispatch } from '@/lib/store/hooks';
 import {
     setAmount,
@@ -19,9 +20,11 @@ import { ArrowRightLeft } from 'lucide-react';
 import { CurrencySelect } from '@/components/CurrencySelect';
 import { DenominationBreakdown } from '@/components/DenominationBreakdown';
 import type { Currency } from '@/lib/currency/types';
+import { cn } from '@/lib/utils';
 
 export function CurrencyConverter() {
     const dispatch = useAppDispatch();
+    const [isRotated, setIsRotated] = useState(false);
     const { amount, toAmount, fromCurrency, toCurrency } = useAppSelector(
         (state) => state.converter
     );
@@ -73,6 +76,7 @@ export function CurrencyConverter() {
     }
 
     const handleSwap = () => {
+        setIsRotated(!isRotated);
         if (amount && !toAmount && toValue) {
             // If we have a calculated 'to' value, use it as the new 'from' amount
             dispatch(setAmount(toValue));
@@ -135,7 +139,10 @@ export function CurrencyConverter() {
                             onClick={handleSwap}
                             variant="outline"
                             size="icon"
-                            className="shrink-0 h-12 w-12 rounded-full border border-input bg-background hover:bg-muted hover:scale-110 transition-all"
+                            className={cn(
+                                "shrink-0 h-12 w-12 rounded-full border border-input bg-background hover:bg-muted transition-all duration-300 hover:scale-110",
+                                isRotated ? "rotate-180" : "rotate-0"
+                            )}
                             data-testid="swap-button"
                         >
                             <ArrowRightLeft className="h-5 w-5 text-muted-foreground rotate-90 md:rotate-0" />
