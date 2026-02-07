@@ -63,11 +63,11 @@ export function UnifiedLayout() {
                         </div>
 
                         <TabsList className="fixed bottom-0 left-0 right-0 z-50 flex h-16! w-full bg-background border-t border-border rounded-none pb-safe">
-                            <TabsTrigger value="converter" className="flex-1 flex flex-col gap-1 h-full rounded-none data-[state=active]:text-primary data-[state=active]:bg-transparent border-t-2 border-transparent data-[state=active]:border-primary transition-none">
+                            <TabsTrigger value="converter" className="flex-1 flex flex-col gap-1 h-full rounded-none data-[state=active]:text-primary! data-[state=active]:bg-transparent border-t-2 border-transparent data-[state=active]:border-primary transition-none">
                                 <Home className="h-5 w-5" />
                                 <span className="text-xs font-medium">Home</span>
                             </TabsTrigger>
-                            <TabsTrigger value="settings" className="flex-1 flex flex-col gap-1 h-full rounded-none data-[state=active]:text-primary data-[state=active]:bg-transparent border-t-2 border-transparent data-[state=active]:border-primary transition-none">
+                            <TabsTrigger value="settings" className="flex-1 flex flex-col gap-1 h-full rounded-none data-[state=active]:text-primary! data-[state=active]:bg-transparent border-t-2 border-transparent data-[state=active]:border-primary transition-none">
                                 <Settings className="h-5 w-5" />
                                 <span className="text-xs font-medium">Settings</span>
                             </TabsTrigger>
