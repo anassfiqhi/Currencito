@@ -82,7 +82,7 @@ export function UnifiedLayout() {
                             World Currency Converter
                         </h1>
                         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                            Convert instantly between Moroccan Dirham, Riyal, Franc, and major world currencies with real-time exchange rates.
+                            Convert instantly world currencies with real-time exchange rates.
                         </p>
                     </div>
 
