@@ -137,7 +137,7 @@
 
   ::-webkit-scrollbar-thumb {
     background: linear-gradient(to bottom, var(--primary), var(--primary));
-    border-radius: 5px;
+    border-radius: 2.5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
