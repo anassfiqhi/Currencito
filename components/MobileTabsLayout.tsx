@@ -25,14 +25,6 @@ export function MobileTabsLayout() {
                         <React.Suspense fallback={<div className="text-center text-muted-foreground">Loading converter...</div>}>
                             <CurrencyConverterWithUrl />
                         </React.Suspense>
-                        {/* Info Widget */}
-                        <div className="mt-8 px-4">
-                            <div className="p-4 bg-muted/50 rounded-xl border border-border">
-                                <p className="text-xs text-center text-muted-foreground">
-                                    1 MAD = 20 Riyals • 1 MAD = 100 Francs
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </TabsContent>
                 <TabsContent value="settings" className="m-0 h-full">
