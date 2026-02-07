@@ -111,7 +111,7 @@ export function CurrencyConverter() {
                             <label className="block text-xs font-medium text-muted-foreground mb-2">
                                 From
                             </label>
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-stretch gap-3">
                                 <Input
                                     type="text"
                                     inputMode="decimal"
@@ -146,7 +146,7 @@ export function CurrencyConverter() {
                             <label className="block text-xs font-medium text-muted-foreground mb-2">
                                 To
                             </label>
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-stretch gap-3">
                                 <Input
                                     type="text"
                                     inputMode="decimal"

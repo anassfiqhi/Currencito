@@ -119,6 +119,7 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    caret-color: var(--primary);
   }
 
   body {
@@ -143,5 +144,21 @@
   ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(to bottom, var(--primary), var(--primary));
     opacity: 0.8;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  ::-moz-selection {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  ::-webkit-selection {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
   }
 }
