@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: "Currencito - World Currency Converter",
   description: "Convert world currencies with real-time exchange rates. See exact breakdown of coins and banknotes needed.",
   keywords: ["currency converter", "exchange rate", "world currencies"],
-  manifest: "/manifest.json",
+  manifest: "/manifest.webmanifest",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -40,6 +40,8 @@ export const metadata: Metadata = {
   },
 };
 
+import OnlineStatus from "@/components/OnlineStatus";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -48,6 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`}>
+        <OnlineStatus />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
