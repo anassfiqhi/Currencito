@@ -1,7 +1,7 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import { fetchExchangeRates } from '@/lib/api/exchangeRates';
+import { fetchExchangeRates, getFallbackRates } from '@/lib/api/exchangeRates';
 import type { ExchangeRates } from '@/lib/currency/types';
 import { getCachedRates, saveRates } from '@/lib/db';
 
@@ -14,7 +14,12 @@ async function fetchWithCache(): Promise<ExchangeRates> {
         console.warn('Network error, attempting to load from cache...', error);
         const cached = await getCachedRates();
         if (cached) return cached;
-        throw error;
+
+        console.warn('Cache empty, using fallback rates...');
+        const fallback = getFallbackRates();
+        // Try to save fallback to cache so we have it next time
+        await saveRates(fallback);
+        return fallback;
     }
 }
 

@@ -33,7 +33,7 @@ export async function fetchExchangeRates(): Promise<ExchangeRates> {
 /**
  * Fallback exchange rates (approximate, as of Jan 2026)
  */
-function getFallbackRates(): ExchangeRates {
+export function getFallbackRates(): ExchangeRates {
     return {
         base: 'MAD',
         date: new Date().toISOString().split('T')[0],
