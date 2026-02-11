@@ -102,7 +102,7 @@ export function DenominationBreakdown({
                                     )}
                                     <div className="flex items-center justify-between">
                                         <span className="text-xs font-medium text-muted-foreground">
-                                            {denom.value}
+                                            {denom.value} {currency}
                                         </span>
                                         <Badge variant="secondary" className="text-xs">
                                             {denom.count}×
