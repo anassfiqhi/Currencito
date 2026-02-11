@@ -6,7 +6,8 @@ const withSerwist = withSerwistInit({
   swDest: "public/sw.js",
   cacheOnNavigation: true,
   reloadOnOnline: true,
-  disable: process.env.NODE_ENV === "development",
+  // disable: process.env.NODE_ENV === "development",
+  disable: false,
 });
 
 const nextConfig: NextConfig = {
